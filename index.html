@@ -1,26 +1,4 @@
 import tkinter as tk
-
-root = tk.Tk()
-root.title("The Girl Who Wrote the Wind")
-root.geometry("600x400")
-root.configure(bg="#fff0f5")  # pastel pink
-
-label = tk.Label(root, text="✨ The Girl Who Wrote the Wind ✨", 
-                 font=("Quicksand", 18, "bold"), 
-                 bg="#fff0f5", fg="#ff69b4")
-label.pack(pady=20)
-
-story = """In the sun-drenched village of Aroko, where the wind spoke in riddles...
-Sewa, the last Windscribe, whispered stories into the breeze...
-Her voice became wind. And the world remembered."""
-
-text = tk.Label(root, text=story, wraplength=500, justify="left",
-                font=("Quicksand", 12), bg="#fffafc", fg="#6b4c6b")
-text.pack(padx=20, pady=10)
-
-root.mainloop()
-
-import tkinter as tk
 from tkinter import ttk
 
 # Create main window
