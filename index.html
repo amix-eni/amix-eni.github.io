@@ -4,31 +4,27 @@ from tkinter import ttk
 # Create main window
 root = tk.Tk()
 root.title("The Girl Who Wrote the Wind")
-root.geometry("700x600")
-root.configure(bg="#fff0f5")  # base pastel pink
+root.geometry("750x600")
+root.configure(bg="#fff0f5")  # pastel pink base
 
-# Use a custom font if available
-try:
-    font_title = ("Comic Sans MS", 20, "bold")
-    font_body = ("Comic Sans MS", 12)
-except:
-    font_title = ("Helvetica", 20, "bold")
-    font_body = ("Helvetica", 12)
-
-# Create a scrollable frame
+# Create canvas and scrollbar
 canvas = tk.Canvas(root, bg="#fff0f5", highlightthickness=0)
 scrollbar = ttk.Scrollbar(root, orient="vertical", command=canvas.yview)
-scroll_frame = tk.Frame(canvas, bg="#fff0f5")
+scrollable_frame = tk.Frame(canvas, bg="#fff0f5")
 
-scroll_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
-canvas.create_window((0, 0), window=scroll_frame, anchor="nw")
+scrollable_frame.bind(
+    "<Configure>",
+    lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+)
+
+canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
 canvas.configure(yscrollcommand=scrollbar.set)
 
 canvas.pack(side="left", fill="both", expand=True)
 scrollbar.pack(side="right", fill="y")
 
-# Pastel color rotation
-pastel_colors = [
+# Pastel color themes
+pastel_themes = [
     {"bg": "#fff0f5", "title": "#ff69b4", "text": "#6b4c6b"},  # pink
     {"bg": "#e6ffe6", "title": "#66cc99", "text": "#336633"},  # mint green
     {"bg": "#e6f7ff", "title": "#3399ff", "text": "#003366"},  # baby blue
@@ -77,15 +73,15 @@ chapters = {
     ]
 }
 
-# Add chapters with rotating pastel colors
+# Add chapters with rotating pastel themes
 for i, (title, paragraphs) in enumerate(chapters.items()):
-    theme = pastel_colors[i % len(pastel_colors)]
-    section = tk.Frame(scroll_frame, bg=theme["bg"])
+    theme = pastel_themes[i % len(pastel_themes)]
+    section = tk.Frame(scrollable_frame, bg=theme["bg"])
     section.pack(fill="x", pady=10)
 
-    tk.Label(section, text=title, font=font_title, bg=theme["bg"], fg=theme["title"]).pack(anchor="w", pady=(10, 5), padx=20)
+    tk.Label(section, text=title, bg=theme["bg"], fg=theme["title"], font=("Arial", 16, "italic")).pack(anchor="w", pady=(10, 5), padx=20)
     for para in paragraphs:
-        tk.Label(section, text=para, font=font_body, bg=theme["bg"], fg=theme["text"], wraplength=650, justify="left").pack(anchor="w", padx=30)
+        tk.Label(section, text=para, bg=theme["bg"], fg=theme["text"], wraplength=700, justify="left", font=("Arial", 11, "italic")).pack(anchor="w", padx=30)
 
 # Run the app
 root.mainloop()
