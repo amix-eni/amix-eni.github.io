@@ -1,102 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>The Boy Who Painted the Sky</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to bottom, #fff0f5, #fceeff);
-      color: #5c5c5c;
-      padding: 20px;
-    }
-    header {
-      background-color: #ffcce0;
-      color: #6b4c6b;
-      padding: 40px;
-      text-align: center;
-      border-bottom: 4px dashed #f8b3d0;
-    }
-    h1 {
-      font-size: 2.8em;
-      margin: 0;
-      font-weight: 600;
-    }
-    h2 {
-      color: #ff69b4;
-      font-size: 1.8em;
-      margin-top: 40px;
-    }
-    p {
-      font-size: 1.1em;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .chapter {
-      margin: 40px auto;
-      max-width: 800px;
-      padding: 25px;
-      background-color: #fffafc;
-      border-left: 6px solid #f8b3d0;
-      box-shadow: 0 0 12px rgba(255, 182, 193, 0.3);
-      border-radius: 12px;
-    }
-    .magic {
-      background-color: #e6f7ff;
-      padding: 15px;
-      border-radius: 10px;
-      color: #6699cc;
-      border: 2px dotted #b3e0ff;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #ffcce0;
-      color: #6b4c6b;
-      font-size: 0.9em;
-      border-top: 4px dashed #f8b3d0;
-      margin-top: 40px;
-    }
-  </style>
-</head>
-<body>
+import tkinter as tk
 
-  <header>
-    <h1>🌈 The Boy Who Painted the Sky</h1>
-    <p>A dreamy tale of color, courage, and creativity</p>
-  </header>
+root = tk.Tk()
+root.title("The Girl Who Wrote the Wind")
+root.geometry("600x400")
+root.configure(bg="#fff0f5")  # pastel pink
 
-  <div class="chapter">
-    <h2>Chapter One: The Gray Village</h2>
-    <p>In a quiet village tucked between faded hills and whispering woods, the world had lost its color. The sky was a permanent shade of gray, the trees wore coats of dust, and the rivers flowed like melted silver. No one remembered the last time they saw a bluebird or a golden sunrise. The villagers had grown used to the dullness, their hearts as pale as the world around them.</p>
-    <p>But one boy, named Elu, saw things differently. He was quiet, curious, and often wandered alone with a sketchbook made of scraps. While others saw gloom, Elu saw potential. He believed the sky could be blue again, the flowers could bloom in crimson, and the rivers could sparkle like liquid diamonds.</p>
-  </div>
+label = tk.Label(root, text="✨ The Girl Who Wrote the Wind ✨", 
+                 font=("Quicksand", 18, "bold"), 
+                 bg="#fff0f5", fg="#ff69b4")
+label.pack(pady=20)
 
-  <div class="chapter">
-    <h2>Chapter Two: The Brush Beneath the Willow</h2>
-    <p>One misty morning, Elu wandered deeper into the woods than ever before. Beneath a weeping willow, he found something strange—a paintbrush, half-buried in moss, glowing faintly with a soft pink light. As he picked it up, the air shimmered. A single stroke across a tree trunk turned the bark pastel peach. Elu gasped. The brush was magic.</p>
-    <div class="magic">
-      <p>He painted a swirl in the sky—and it turned baby blue. Birds began to sing. The villagers, watching from afar, gasped. Color was returning.</p>
-    </div>
-  </div>
+story = """In the sun-drenched village of Aroko, where the wind spoke in riddles...
+Sewa, the last Windscribe, whispered stories into the breeze...
+Her voice became wind. And the world remembered."""
 
-  <div class="chapter">
-    <h2>Chapter Three: The Shadow Keeper</h2>
-    <p>But not everyone was pleased. Deep in the mountains lived the Shadow Keeper, a creature made of fog and forgotten dreams. It had ruled the gray skies for centuries, feeding on silence and sorrow. When it saw Elu’s colors spreading, it roared in fury and slithered toward the village, determined to steal the brush and return the world to gloom.</p>
-    <p>Elu stood firm. With every stroke, he painted memories: a golden sunrise, a violet mountain, a rainbow bridge. The Shadow Keeper shrank, unable to survive in a world of light and laughter.</p>
-  </div>
+text = tk.Label(root, text=story, wraplength=500, justify="left",
+                font=("Quicksand", 12), bg="#fffafc", fg="#6b4c6b")
+text.pack(padx=20, pady=10)
 
-  <div class="chapter">
-    <h2>Chapter Four: The Festival of Color</h2>
-    <p>By sunset, the village was transformed. Children danced in fields of marigold. The rivers sang lullabies. The houses were painted in pastel pinks, mint greens, and lavender blues. The villagers held a festival, wearing flower crowns and painting their faces with joy.</p>
-    <p>Elu, the boy who believed in color, became a legend. His brush now rests in the village square, glowing softly—waiting for the next dreamer to pick it up.</p>
-  </div>
+root.mainloop()
 
-  <footer>
-    <p>Made with sparkle and sass by Amix 💖</p>
-  </footer>
+import tkinter as tk
+from tkinter import ttk
 
-</body>
-</html>
+# Create main window
+root = tk.Tk()
+root.title("The Girl Who Wrote the Wind")
+root.geometry("700x600")
+root.configure(bg="#fff0f5")  # pastel pink
+
+# Use a custom font if available
+try:
+    font_title = ("Comic Sans MS", 20, "bold")
+    font_body = ("Comic Sans MS", 12)
+except:
+    font_title = ("Helvetica", 20, "bold")
+    font_body = ("Helvetica", 12)
+
+# Create a scrollable frame
+canvas = tk.Canvas(root, bg="#fff0f5", highlightthickness=0)
+scrollbar = ttk.Scrollbar(root, orient="vertical", command=canvas.yview)
+scroll_frame = tk.Frame(canvas, bg="#fff0f5")
+
+scroll_frame.bind(
+    "<Configure>",
+    lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+)
+
+canvas.create_window((0, 0), window=scroll_frame, anchor="nw")
+canvas.configure(yscrollcommand=scrollbar.set)
+
+canvas.pack(side="left", fill="both", expand=True)
+scrollbar.pack(side="right", fill="y")
+
+# Story content
+chapters = {
+    "Chapter One: Whispers in the Dust": [
+        "In the village of Aroko, the wind had stopped telling stories.",
+        "Once, it had danced through the market stalls, rustling palm leaves and whispering secrets to children who listened closely.",
+        "But now, it moved like a ghost—silent, heavy, and tired. The skies hung low, the earth cracked with thirst, and the people spoke only when necessary.",
+        "Sewa was seventeen, and she hated silence. She wrote in the margins of old newspapers, on banana leaves, even on the walls of her room.",
+        "Her words weren’t just poems—they were protests. She believed stories could heal, that language had power, and that the wind was waiting for someone to speak again."
+    ],
+    "Chapter Two: The Letter Beneath the Baobab": [
+        "One evening, Sewa climbed the hill behind the village, where the ancient baobab tree stood like a guardian.",
+        "She sat beneath its roots and whispered a poem into the breeze: 'If the wind forgets its name, I’ll write it in the sky.'",
+        "As she spoke, something shifted. A gust of wind curled around her ankles, and a folded piece of paper fluttered out from beneath the tree.",
+        "It was old, soft as silk, and written in a language she didn’t recognize. But the paper pulsed—like it was alive.",
+        "Her mother’s face turned pale. 'This is wind-script,' she whispered. 'It hasn’t been seen in generations.'"
+    ],
+    "Chapter Three: The Silence Comes": [
+        "That night, the wind stopped completely. No rustling leaves. No humming insects. No breath between the stars.",
+        "The village fell into a hush so deep it felt like drowning. Children forgot their names. Elders stared blankly at the sky.",
+        "But Sewa remembered. She stood beneath the baobab and spoke. Her voice cracked, but the wind stirred.",
+        "She told stories—of her childhood, of her dreams, of the ancestors who danced in moonlight. And with each word, color returned."
+    ],
+    "Chapter Four: The Journey to Elaria": [
+        "Sewa knew she couldn’t stay. The silence was only a shadow of what was coming.",
+        "Guided by the wind, she left Aroko with nothing but her journal, a pouch of Mama Teni’s herbs, and the wind-script letter.",
+        "She crossed deserts that whispered her name, rivers that sang lullabies, and mountains that tested her courage.",
+        "In Elaria, she found others—keepers of forgotten languages, dancers who moved like poetry, and painters who bled color into the sky."
+    ],
+    "Chapter Five: The Story That Saved the World": [
+        "When the silence returned, it came as a storm—black, endless, and hungry.",
+        "It swallowed voices, erased memories, and turned dreams to dust.",
+        "Sewa stood at the edge of the world and wrote. She wrote of love, laughter, and a girl who believed her words could change everything.",
+        "Her story became light. Her voice became wind. And the world remembered."
+    ],
+    "Epilogue: The Wind Still Writes": [
+        "Back in Aroko, the baobab tree hums with stories. Children climb its roots and whisper dreams.",
+        "The wind carries their words across oceans and into hearts.",
+        "And somewhere, in a realm between breath and memory, Sewa writes still."
+    ]
+}
+
+# Add chapters to the scrollable frame
+for title, paragraphs in chapters.items():
+    tk.Label(scroll_frame, text=title, font=font_title, bg="#fff0f5", fg="#ff69b4").pack(anchor="w", pady=(20, 5), padx=20)
+    for para in paragraphs:
+        tk.Label(scroll_frame, text=para, font=font_body, bg="#fff0f5", fg="#6b4c6b", wraplength=650, justify="left").pack(anchor="w", padx=30)
+
+# Run the app
+root.mainloop()
