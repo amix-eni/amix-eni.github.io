@@ -1,75 +1,112 @@
-import time
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amix - My Personal Webpage</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        header {
+            background-color: #2e8b57;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 50px;
+        }
+        header p {
+            font-size: 22px;
+            margin-top: 10px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px
+  <meta charset="UTF-8">
+  <title>The Boy Who Painted the Sky</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f0f8ff, #e6f7ff);
+      color: #333;
+      padding: 20px;
+    }
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+    .section {
+      margin: 40px 0;
+      padding: 20px;
+      border-left: 8px solid #66ccff;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .highlight {
+      color: #ff6600;
+      font-weight: bold;
+    }
+    .magic {
+      background-color: #ccf2ff;
+      padding: 10px;
+      border-radius: 8px;
+      color: #006699;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #004080;
+      color: white;
+    }
+  </style>
+</head>
+<body>
 
-# ANSI color codes for pastel-like vibes
-colors = {
-    "pink": "\033[95m",
-    "blue": "\033[94m",
-    "green": "\033[92m",
-    "yellow": "\033[93m",
-    "red": "\033[91m",
-    "purple": "\033[35m",
-    "gold": "\033[33m",
-    "reset": "\033[0m",
-    "italic": "\033[3m"
-}
+  <header>
+    <h1>The Boy Who Painted the Sky</h1>
+    <p>A story of color, courage, and imagination</p>
+  </header>
 
-def print_section(title, paragraphs, color):
-    print(f"\n{colors[color]}{colors['italic']}{title}{colors['reset']}")
-    time.sleep(1)
-    for para in paragraphs:
-        print(f"{colors['italic']}{para}{colors['reset']}\n")
-        time.sleep(1.5)
+  <div class="section">
+    <p>In a quiet village where the sky was always gray and the trees wore coats of dust, lived a boy named <span class="highlight">Elu</span>. He was different—not because of how he looked, but because of how he saw the world. While others saw dullness, Elu saw potential. He believed the sky could be blue again, the flowers could bloom in crimson, and the rivers could sparkle like liquid diamonds.</p>
+  </div>
 
-# Story content
-story = [
-    ("🌈 The Boy Who Painted the Sky", [
-        "In a quiet village where the sky was always gray and the trees wore coats of dust, lived a boy named Elu.",
-        "He was different—not because of how he looked, but because of how he saw the world.",
-        "While others saw dullness, Elu saw potential. He believed the sky could be blue again, the flowers could bloom in crimson, and the rivers could sparkle like liquid diamonds."
-    ], "pink"),
+  <div class="section magic">
+    <p>One day, Elu found an old paintbrush buried beneath a willow tree. It shimmered with a strange light, and when he touched it, a splash of color burst into the air. He painted a single stroke across the sky—and it turned <strong>azure blue</strong>. Birds began to sing. The villagers gasped. Color was returning.</p>
+  </div>
 
-    ("The Magic Brush", [
-        "One day, Elu found an old paintbrush buried beneath a willow tree. It shimmered with a strange light.",
-        "He painted a single stroke across the sky—and it turned pastel blue. Birds began to sing. Color was returning."
-    ], "blue"),
+  <div class="section">
+    <p>But not everyone was pleased. The <span class="highlight">Shadow Keeper</span>, a creature made of fog and forgotten dreams, had ruled the gray skies for centuries. It roared in anger and tried to steal the brush. Elu stood firm. With every stroke, he painted memories: a golden sunrise, a violet mountain, a rainbow bridge. The Shadow Keeper shrank, unable to survive in a world of light.</p>
+  </div>
 
-    ("Red for Memory", [
-        "He painted roses that blushed in red, and the village square bloomed with warmth.",
-        "The elders wept, remembering love letters written long ago. Red became the color of memory."
-    ], "red"),
+  <div class="section magic">
+    <p>By sunset, the village was transformed. Children danced in fields of marigold. The rivers sang lullabies. And Elu, the boy who believed in color, became a legend. His brush now rests in the village square, glowing softly—waiting for the next dreamer to pick it up.</p>
+  </div>
 
-    ("Green for Life", [
-        "Next came green—lush, vibrant, alive. Elu painted vines that curled around rooftops and trees that whispered secrets.",
-        "Children climbed branches that hadn’t grown in years."
-    ], "green"),
+  <footer>
+    <p>Made with imagination by Amix ✨</p>
+  </footer>
 
-    ("Yellow for Joy", [
-        "With yellow, he summoned joy. Sunflowers turned their heads. The bakery glowed with golden bread.",
-        "Laughter echoed through the streets like music. Even the shadows danced."
-    ], "yellow"),
-
-    ("Purple for Dreams", [
-        "He painted purple mountains that shimmered with mystery. The stars above twinkled in response.",
-        "The villagers dreamed again—of faraway lands, of stories untold, of magic that lived in the quiet."
-    ], "purple"),
-
-    ("Gold for Hope", [
-        "Finally, he painted with gold. The brush glowed. The sky shimmered. The village sparkled like a crown.",
-        "The Shadow Keeper tried one last time to steal the light—but gold was stronger than fear."
-    ], "gold"),
-
-    ("Legend of Elu", [
-        "By sunset, the village was transformed. Children danced in fields of marigold. The rivers sang lullabies.",
-        "And Elu, the boy who believed in color, became a legend.",
-        "His brush now rests in the village square, glowing softly—waiting for the next dreamer to pick it up."
-    ], "pink")
-]
-
-# Run the story
-print(f"{colors['blue']}{colors['italic']}✨ A dreamy tale of color, courage, and creativity ✨{colors['reset']}\n")
-time.sleep(1)
-
-for title, paragraphs, color in story:
-    print_section(title, paragraphs, color)
-
-print(f"\n{colors['purple']}{colors['italic']}💖 Made with sparkle and sass by Amix 💖{colors['reset']}\n")
+</body>
+</html>
