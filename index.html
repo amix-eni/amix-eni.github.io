@@ -1,87 +1,75 @@
-import tkinter as tk
-from tkinter import ttk
+import time
 
-# Create main window
-root = tk.Tk()
-root.title("The Girl Who Wrote the Wind")
-root.geometry("750x600")
-root.configure(bg="#fff0f5")  # pastel pink base
-
-# Create canvas and scrollbar
-canvas = tk.Canvas(root, bg="#fff0f5", highlightthickness=0)
-scrollbar = ttk.Scrollbar(root, orient="vertical", command=canvas.yview)
-scrollable_frame = tk.Frame(canvas, bg="#fff0f5")
-
-scrollable_frame.bind(
-    "<Configure>",
-    lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
-)
-
-canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
-canvas.configure(yscrollcommand=scrollbar.set)
-
-canvas.pack(side="left", fill="both", expand=True)
-scrollbar.pack(side="right", fill="y")
-
-# Pastel color themes
-pastel_themes = [
-    {"bg": "#fff0f5", "title": "#ff69b4", "text": "#6b4c6b"},  # pink
-    {"bg": "#e6ffe6", "title": "#66cc99", "text": "#336633"},  # mint green
-    {"bg": "#e6f7ff", "title": "#3399ff", "text": "#003366"},  # baby blue
-    {"bg": "#f3e6ff", "title": "#cc99ff", "text": "#663399"},  # lavender
-    {"bg": "#ffffe6", "title": "#ffcc00", "text": "#996600"}   # pastel yellow
-]
-
-# Story content
-chapters = {
-    "Chapter One: Whispers in the Dust": [
-        "In the village of Aroko, the wind had stopped telling stories.",
-        "Once, it had danced through the market stalls, rustling palm leaves and whispering secrets to children who listened closely.",
-        "But now, it moved like a ghost—silent, heavy, and tired. The skies hung low, the earth cracked with thirst, and the people spoke only when necessary.",
-        "Sewa was seventeen, and she hated silence. She wrote in the margins of old newspapers, on banana leaves, even on the walls of her room.",
-        "Her words weren’t just poems—they were protests. She believed stories could heal, that language had power, and that the wind was waiting for someone to speak again."
-    ],
-    "Chapter Two: The Letter Beneath the Baobab": [
-        "One evening, Sewa climbed the hill behind the village, where the ancient baobab tree stood like a guardian.",
-        "She sat beneath its roots and whispered a poem into the breeze: 'If the wind forgets its name, I’ll write it in the sky.'",
-        "As she spoke, something shifted. A gust of wind curled around her ankles, and a folded piece of paper fluttered out from beneath the tree.",
-        "It was old, soft as silk, and written in a language she didn’t recognize. But the paper pulsed—like it was alive.",
-        "Her mother’s face turned pale. 'This is wind-script,' she whispered. 'It hasn’t been seen in generations.'"
-    ],
-    "Chapter Three: The Silence Comes": [
-        "That night, the wind stopped completely. No rustling leaves. No humming insects. No breath between the stars.",
-        "The village fell into a hush so deep it felt like drowning. Children forgot their names. Elders stared blankly at the sky.",
-        "But Sewa remembered. She stood beneath the baobab and spoke. Her voice cracked, but the wind stirred.",
-        "She told stories—of her childhood, of her dreams, of the ancestors who danced in moonlight. And with each word, color returned."
-    ],
-    "Chapter Four: The Journey to Elaria": [
-        "Sewa knew she couldn’t stay. The silence was only a shadow of what was coming.",
-        "Guided by the wind, she left Aroko with nothing but her journal, a pouch of Mama Teni’s herbs, and the wind-script letter.",
-        "She crossed deserts that whispered her name, rivers that sang lullabies, and mountains that tested her courage.",
-        "In Elaria, she found others—keepers of forgotten languages, dancers who moved like poetry, and painters who bled color into the sky."
-    ],
-    "Chapter Five: The Story That Saved the World": [
-        "When the silence returned, it came as a storm—black, endless, and hungry.",
-        "It swallowed voices, erased memories, and turned dreams to dust.",
-        "Sewa stood at the edge of the world and wrote. She wrote of love, laughter, and a girl who believed her words could change everything.",
-        "Her story became light. Her voice became wind. And the world remembered."
-    ],
-    "Epilogue: The Wind Still Writes": [
-        "Back in Aroko, the baobab tree hums with stories. Children climb its roots and whisper dreams.",
-        "The wind carries their words across oceans and into hearts.",
-        "And somewhere, in a realm between breath and memory, Sewa writes still."
-    ]
+# ANSI color codes for pastel-like vibes
+colors = {
+    "pink": "\033[95m",
+    "blue": "\033[94m",
+    "green": "\033[92m",
+    "yellow": "\033[93m",
+    "red": "\033[91m",
+    "purple": "\033[35m",
+    "gold": "\033[33m",
+    "reset": "\033[0m",
+    "italic": "\033[3m"
 }
 
-# Add chapters with rotating pastel themes
-for i, (title, paragraphs) in enumerate(chapters.items()):
-    theme = pastel_themes[i % len(pastel_themes)]
-    section = tk.Frame(scrollable_frame, bg=theme["bg"])
-    section.pack(fill="x", pady=10)
-
-    tk.Label(section, text=title, bg=theme["bg"], fg=theme["title"], font=("Arial", 16, "italic")).pack(anchor="w", pady=(10, 5), padx=20)
+def print_section(title, paragraphs, color):
+    print(f"\n{colors[color]}{colors['italic']}{title}{colors['reset']}")
+    time.sleep(1)
     for para in paragraphs:
-        tk.Label(section, text=para, bg=theme["bg"], fg=theme["text"], wraplength=700, justify="left", font=("Arial", 11, "italic")).pack(anchor="w", padx=30)
+        print(f"{colors['italic']}{para}{colors['reset']}\n")
+        time.sleep(1.5)
 
-# Run the app
-root.mainloop()
+# Story content
+story = [
+    ("🌈 The Boy Who Painted the Sky", [
+        "In a quiet village where the sky was always gray and the trees wore coats of dust, lived a boy named Elu.",
+        "He was different—not because of how he looked, but because of how he saw the world.",
+        "While others saw dullness, Elu saw potential. He believed the sky could be blue again, the flowers could bloom in crimson, and the rivers could sparkle like liquid diamonds."
+    ], "pink"),
+
+    ("The Magic Brush", [
+        "One day, Elu found an old paintbrush buried beneath a willow tree. It shimmered with a strange light.",
+        "He painted a single stroke across the sky—and it turned pastel blue. Birds began to sing. Color was returning."
+    ], "blue"),
+
+    ("Red for Memory", [
+        "He painted roses that blushed in red, and the village square bloomed with warmth.",
+        "The elders wept, remembering love letters written long ago. Red became the color of memory."
+    ], "red"),
+
+    ("Green for Life", [
+        "Next came green—lush, vibrant, alive. Elu painted vines that curled around rooftops and trees that whispered secrets.",
+        "Children climbed branches that hadn’t grown in years."
+    ], "green"),
+
+    ("Yellow for Joy", [
+        "With yellow, he summoned joy. Sunflowers turned their heads. The bakery glowed with golden bread.",
+        "Laughter echoed through the streets like music. Even the shadows danced."
+    ], "yellow"),
+
+    ("Purple for Dreams", [
+        "He painted purple mountains that shimmered with mystery. The stars above twinkled in response.",
+        "The villagers dreamed again—of faraway lands, of stories untold, of magic that lived in the quiet."
+    ], "purple"),
+
+    ("Gold for Hope", [
+        "Finally, he painted with gold. The brush glowed. The sky shimmered. The village sparkled like a crown.",
+        "The Shadow Keeper tried one last time to steal the light—but gold was stronger than fear."
+    ], "gold"),
+
+    ("Legend of Elu", [
+        "By sunset, the village was transformed. Children danced in fields of marigold. The rivers sang lullabies.",
+        "And Elu, the boy who believed in color, became a legend.",
+        "His brush now rests in the village square, glowing softly—waiting for the next dreamer to pick it up."
+    ], "pink")
+]
+
+# Run the story
+print(f"{colors['blue']}{colors['italic']}✨ A dreamy tale of color, courage, and creativity ✨{colors['reset']}\n")
+time.sleep(1)
+
+for title, paragraphs, color in story:
+    print_section(title, paragraphs, color)
+
+print(f"\n{colors['purple']}{colors['italic']}💖 Made with sparkle and sass by Amix 💖{colors['reset']}\n")
